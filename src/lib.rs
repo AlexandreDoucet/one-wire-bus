@@ -35,8 +35,7 @@ pub struct OneWire<T> {
 
 impl<T, E> OneWire<T>
 where
-    T: InputPin<Error = E>,
-    T: OutputPin<Error = E>,
+    T: InputPin<Error = E> + OutputPin<Error = E>,
 {
     pub fn new(pin: T) -> OneWireResult<OneWire<T>, E> {
         let mut one_wire = OneWire { pin };
